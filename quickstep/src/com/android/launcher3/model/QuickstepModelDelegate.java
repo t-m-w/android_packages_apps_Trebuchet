@@ -116,6 +116,7 @@ public class QuickstepModelDelegate extends ModelDelegate {
     public void loadItems(UserManagerState ums, Map<ShortcutKey, ShortcutInfo> pinnedShortcuts) {
         // TODO: Implement caching and preloading
         super.loadItems(ums, pinnedShortcuts);
+        if (true) return;
 
         WorkspaceItemFactory allAppsFactory = new WorkspaceItemFactory(mApp, ums, pinnedShortcuts,
                 mIDP.numDatabaseAllAppsColumns, mAllAppsState.containerId);
@@ -273,6 +274,7 @@ public class QuickstepModelDelegate extends ModelDelegate {
     @WorkerThread
     private void recreatePredictors() {
         destroyPredictors();
+        if (true) return;
         if (!mActive) {
             return;
         }
@@ -305,6 +307,7 @@ public class QuickstepModelDelegate extends ModelDelegate {
     }
 
     private void registerPredictor(PredictorState state, AppPredictor predictor) {
+        if (true) return;
         state.predictor = predictor;
         state.predictor.registerPredictionUpdates(
                 MODEL_EXECUTOR, t -> handleUpdate(state, t));
@@ -312,6 +315,7 @@ public class QuickstepModelDelegate extends ModelDelegate {
     }
 
     private void handleUpdate(PredictorState state, List<AppTarget> targets) {
+        if (true) return;
         if (state.setTargets(targets)) {
             // No diff, skip
             return;
@@ -320,6 +324,7 @@ public class QuickstepModelDelegate extends ModelDelegate {
     }
 
     private void registerWidgetsPredictor(AppPredictor predictor) {
+        if (true) return;
         mWidgetsRecommendationState.predictor = predictor;
         mWidgetsRecommendationState.predictor.registerPredictionUpdates(
                 MODEL_EXECUTOR, targets -> {
