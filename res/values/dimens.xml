@@ -116,7 +116,10 @@
     <dimen name="all_apps_header_tab_height">48dp</dimen>
     <dimen name="all_apps_tabs_indicator_height">2dp</dimen>
     <dimen name="all_apps_header_top_padding">36dp</dimen>
-    <dimen name="all_apps_header_bottom_padding">14dp</dimen>
+    <!-- influences header protection drawn height below personal/work tabs -->
+    <!-- if app icons are appearing above the protection rectangle, or if they are shifted below
+         it and cropped at the top, try adjusting this -->
+    <dimen name="all_apps_header_bottom_padding">10dp</dimen>
     <dimen name="all_apps_header_top_adjustment">6dp</dimen>
     <dimen name="all_apps_header_bottom_adjustment">4dp</dimen>
     <dimen name="all_apps_work_profile_tab_footer_top_padding">16dp</dimen>
