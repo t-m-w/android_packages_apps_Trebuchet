@@ -103,7 +103,7 @@ public class FloatingHeaderView extends LinearLayout implements
     // Whether the header has been scrolled off-screen.
     private boolean mHeaderCollapsed;
     // Whether floating rows like predicted apps are hidden.
-    private boolean mFloatingRowsCollapsed = true;
+    private boolean mFloatingRowsCollapsed;
     // Total height of all current floating rows. Collapsed rows == 0 height.
     private int mFloatingRowsHeight;
 
@@ -356,7 +356,6 @@ public class FloatingHeaderView extends LinearLayout implements
      * Hides all the floating rows
      */
     public void setFloatingRowsCollapsed(boolean collapsed) {
-        collapsed = true;
         if (mFloatingRowsCollapsed == collapsed) {
             return;
         }
@@ -400,7 +399,6 @@ public class FloatingHeaderView extends LinearLayout implements
     private void updateFloatingRowsHeight() {
         mFloatingRowsHeight =
                 Arrays.stream(mAllRows).mapToInt(FloatingHeaderRow::getExpectedHeight).sum();
-        mFloatingRowsHeight = 0;
     }
 
     /** Gets the combined height of any floating rows (e.g. predicted apps, app divider). */
