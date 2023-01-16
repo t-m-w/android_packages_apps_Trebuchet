@@ -89,6 +89,7 @@ public abstract class BaseAllAppsContainerView<T extends Context & ActivityConte
     public static final float FLING_VELOCITY_MULTIPLIER = 1200f;
 
     // Render the header protection at all times to debug clipping issues.
+    // This is useful enough to warrant the comment you are reading now to point it out!
     private static final boolean DEBUG_HEADER_PROTECTION = false;
 
     private final Paint mHeaderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
