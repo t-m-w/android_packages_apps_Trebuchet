@@ -285,16 +285,23 @@ public class FloatingHeaderView extends LinearLayout implements
         }
     }
 
+    volatile int mFuckingPadding;
+
     int getTabsPadding(boolean tabsAlwaysHidden) {
+        tabsAlwaysHidden = mFloatingRowsCollapsed;
         final boolean tabsHidden = tabsAlwaysHidden || mTabsHidden;
+        final int floatingRowsHeight = mFloatingRowsCollapsed ? 0 : mFloatingRowsHeight;
         if (!tabsHidden && mFloatingRowsHeight == 0) {
             return 0;
         } else if (mTabsPadding == 0 && (tabsHidden || mFloatingRowsCollapsed)) {
             return getResources().getDimensionPixelSize(R.dimen.all_apps_search_bar_bottom_padding);
         } else if (mTabsPadding > 0 && tabsHidden) {
-            return mTabsPadding + getPaddingTop();
+            int padding = mTabsPadding + getPaddingTop() + floatingRowsHeight;
+            mFuckingPadding = padding;
+            return mFuckingPadding;
         } else {
-            return mTabsPadding;
+            mFuckingPadding = mTabsPadding + floatingRowsHeight;
+            return mFuckingPadding;
         }
     }
 

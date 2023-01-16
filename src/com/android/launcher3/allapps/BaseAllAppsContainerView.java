@@ -90,7 +90,7 @@ public abstract class BaseAllAppsContainerView<T extends Context & ActivityConte
 
     // Render the header protection at all times to debug clipping issues.
     // This is useful enough to warrant the comment you are reading now to point it out!
-    private static final boolean DEBUG_HEADER_PROTECTION = false;
+    private static final boolean DEBUG_HEADER_PROTECTION = true;
 
     private final Paint mHeaderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Rect mInsets = new Rect();
@@ -755,7 +755,8 @@ public abstract class BaseAllAppsContainerView<T extends Context & ActivityConte
                     mHeaderPaint.setAlpha((int) (getAlpha() * mTabsProtectionAlpha));
                 }
                 final int protectionBottom = headerView.getBottom()
-                        - headerView.getTabsAdditionalPaddingTop();
+                        - headerView.getTabsPadding(false)
+                        + headerView.getTabsAdditionalPaddingTop();
                 canvas.drawRect(0, bottom, canvas.getWidth(), protectionBottom, mHeaderPaint);
             }
         }
